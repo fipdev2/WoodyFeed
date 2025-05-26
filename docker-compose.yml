@@ -1,0 +1,13 @@
+networks:
+  quiz-woody-feed:
+    driver: bridge
+services:
+  api:
+    image: openjdk:17.0.4
+    mount: ./quiz
+    ports: 3000:3000
+    restart: always
+    networks: quiz-woody-feed
+  
+  frontend:
+    image: nextjs
