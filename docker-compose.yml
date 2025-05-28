@@ -4,8 +4,8 @@ networks:
 services:
   api:
     build:
-      context: ./docker/api
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./docker/api/Dockerfile
     volumes:
       - ./quiz:/quiz
     ports: 

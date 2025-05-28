@@ -2,7 +2,7 @@
 FROM maven:3.9.5-eclipse-temurin-17 as builder
 WORKDIR /app
 
-COPY . /app
+COPY ./quiz /app
 RUN mvn clean package -DskipTests
 
 # Etapa 2: imagem leve com JDK 17
