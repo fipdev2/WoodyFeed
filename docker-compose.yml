@@ -3,11 +3,22 @@ networks:
     driver: bridge
 services:
   api:
-    image: openjdk:17.0.4
-    mount: ./quiz
-    ports: 3000:3000
+    build:
+      context: ./docker/api
+      dockerfile: Dockerfile
+    volumes:
+      - ./quiz:/quiz
+    ports: 
+    - 3000:3000
     restart: always
-    networks: quiz-woody-feed
-  
-  frontend:
-    image: nextjs
+    networks:
+    - quiz-woody-feed
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:3000/actuator/health"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+  # frontend:
+  #   image: nextjs
+
+   
