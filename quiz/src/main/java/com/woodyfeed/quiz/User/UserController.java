@@ -16,7 +16,7 @@ public class UserController {
             User user = User.builder()
             .email(userRequest.getEmail())
             .name(userRequest.getName())
-            .id(userRequest.getId())
+            .password(userRequest.getPassword())
             .build();
             return userRepository.save(user);
         } catch (Exception e) {

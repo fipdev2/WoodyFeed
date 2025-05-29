@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -14,9 +13,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import com.woodyfeed.quiz.User.User;
-import com.woodyfeed.quiz.OAuth.ApplicationProperties;
-import com.woodyfeed.quiz.OAuth.ConnectedAccountRepository;
-import com.woodyfeed.quiz.User.UserConnectedAccount;
+import com.woodyfeed.quiz.Config.ApplicationProperties;
 
 import com.woodyfeed.quiz.User.UserRepository;
 
@@ -26,9 +23,7 @@ public class Oauth2LoginSuccessHandler implements AuthenticationSuccessHandler {
     private final ApplicationProperties applicationProperties;
     private final UserRepository userRepository;
 
-    public Oauth2LoginSuccessHandler(ApplicationProperties applicationProperties,
-            UserRepository userRepository,
-            ConnectedAccountRepository connectedAccountRepository) {
+    public Oauth2LoginSuccessHandler(ApplicationProperties applicationProperties,UserRepository userRepository) {
         this.applicationProperties = applicationProperties;
         this.userRepository = userRepository;
     }

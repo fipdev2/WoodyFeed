@@ -1,4 +1,4 @@
-package com.woodyfeed.quiz.Config;
+package com.woodyfeed.quiz.OAuth;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,9 +11,16 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+
+import com.woodyfeed.quiz.Config.ApplicationProperties;
+
+import jakarta.servlet.http.HttpServletRequest;
+
 import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
 
-import com.woodyfeed.quiz.OAuth.Oauth2LoginSuccessHandler;
+import java.util.List;
 
 import lombok.RequiredArgsConstructor;
 
@@ -22,7 +29,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SecurityConfig {
     private final Oauth2LoginSuccessHandler oauth2LoginSuccessHandler;
-    private final UserDetailsService userDetailsService;
+    // private final UserDetailsService userDetailsService;
+    private final ApplicationProperties applicationProperties;
 
     @SuppressWarnings("deprecation")
     @Bean
@@ -64,4 +72,17 @@ public class SecurityConfig {
 
         return http.build();
     }
+    private CorsConfigurationSource corsConfigurationSource() {
+    return new CorsConfigurationSource() {
+      @Override
+      public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowedOrigins(applicationProperties.getAllowedOrigins());
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedHeaders(List.of("*"));
+        config.setAllowCredentials(true);
+        return config;
+      }
+    };
+  }
 }
