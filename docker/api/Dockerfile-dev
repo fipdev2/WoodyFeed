@@ -1,0 +1,10 @@
+FROM openjdk:17-jdk-slim
+
+WORKDIR /app
+
+COPY quiz /app
+RUN ./mvnw dependency:go-offline
+
+
+# Esse é o segredo pra reload: não faz um jarzão aqui, deixa o código vivo
+CMD ["./mvnw", "spring-boot:run"]
