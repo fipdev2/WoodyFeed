@@ -1,4 +1,4 @@
-package com.woodyfeed.quiz.OAuth;
+package com.woodyfeed.quiz.Auth;
 
 import com.woodyfeed.quiz.User.User;
 import com.woodyfeed.quiz.util.ApiException;

@@ -37,8 +37,6 @@ public class User implements UserDetails {
     private String email;
     private String password;
     private String username;
-    @Nullable
-    private String openId;
     private Role role;
 
     public User(OAuth2User oAuth2User) {

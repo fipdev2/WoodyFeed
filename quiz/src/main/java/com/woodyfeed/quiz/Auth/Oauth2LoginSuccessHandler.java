@@ -1,4 +1,4 @@
-package com.woodyfeed.quiz.OAuth;
+package com.woodyfeed.quiz.Auth;
 
 import java.io.IOException;
 
