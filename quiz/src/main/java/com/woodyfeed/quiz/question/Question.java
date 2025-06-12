@@ -34,4 +34,8 @@ public class Question {
     private ArrayList<User> answeredByUsers;
     @OneToMany
     private ArrayList<Answer> answers;
+
+    public boolean markQuestionAnswered(User user) {
+        return answeredByUsers.add(user);
+    }
 }

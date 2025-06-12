@@ -15,11 +15,22 @@ public class QuestionService {
     @Autowired
     private QuizRepository quizRepository;
 
-    public Question createQuestion(QuestionRequest question) {
-        return Question.builder()
-                .description(question.getDescription())
-                .quiz(quizRepository.findById(question.getQuizId()))
-                .build();
+    @Autowired
+    private QuestionRepository questionRepository;
+
+    public Question createQuestion(QuestionRequest questionRequest) {
+        try {
+            Question question = Question.builder()
+                    .description(questionRequest.getDescription())
+                    .quiz(quizRepository.findById(questionRequest.getQuizId()))
+                    .build();
+            questionRepository.save(question);
+            return question;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
     }
 
 }

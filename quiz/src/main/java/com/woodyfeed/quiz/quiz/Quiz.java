@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.data.relational.core.mapping.Embedded.Nullable;
 
-import com.woodyfeed.quiz.profilePoint.ProfilePoint;
+import com.woodyfeed.quiz.profileMap.ProfileMap;
 import com.woodyfeed.quiz.question.Question;
 import com.woodyfeed.quiz.user.User;
 
@@ -31,4 +31,5 @@ public class Quiz {
     private ArrayList<Question> questions;
     private String title;
     private QuizType type;
+    private ArrayList<ProfileMap> profileMappings;
 }

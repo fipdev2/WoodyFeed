@@ -19,7 +19,6 @@ public class QuizService {
                 .title(quizRequest.getTitle())
                 .type(QuizType.BATMAN)
                 .questions(quizRequest.getQuestions())
-                .completedByUsers(null)
                 .build();
 
         quizRepository.save(quiz);

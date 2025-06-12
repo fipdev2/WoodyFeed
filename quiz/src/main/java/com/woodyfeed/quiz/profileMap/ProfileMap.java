@@ -1,4 +1,4 @@
-package com.woodyfeed.quiz.profilePoint;
+package com.woodyfeed.quiz.profileMap;
 
 import com.woodyfeed.quiz.profile.Profile;
 import com.woodyfeed.quiz.quiz.Quiz;
@@ -17,12 +17,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@Table(name = "quiz_points")
-public class ProfilePoint {
+@Table(name = "profile_maps")
+public class ProfileMap {
     @Id
     private long id;
     private User user;
     private Quiz quiz;
-    private int score;
+    private int score = 0;
     private Profile profile;
 }
