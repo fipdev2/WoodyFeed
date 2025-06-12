@@ -1,9 +1,16 @@
 package com.woodyfeed.quiz.question;
 
+import java.util.ArrayList;
+
+import com.woodyfeed.quiz.answer.Answer;
 import com.woodyfeed.quiz.profile.Profile;
 import com.woodyfeed.quiz.quiz.Quiz;
+import com.woodyfeed.quiz.user.User;
 
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,12 +23,15 @@ import lombok.Setter;
 @Setter
 @Builder
 @NoArgsConstructor
-@Table(name="questions")
+@Table(name = "questions")
 public class Question {
+    @Id
     private long id;
-    private String option;
-    @ManyToOne
-    private Profile mapsTo;
+    private String description;
     @ManyToOne
     private Quiz quiz;
+    @ManyToMany
+    private ArrayList<User> answeredByUsers;
+    @OneToMany
+    private ArrayList<Answer> answers;
 }
