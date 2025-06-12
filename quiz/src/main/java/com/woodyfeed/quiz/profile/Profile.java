@@ -2,6 +2,7 @@ package com.woodyfeed.quiz.profile;
 
 import com.woodyfeed.quiz.question.Question;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -15,6 +16,7 @@ import lombok.Setter;
 @Setter
 @Builder
 @NoArgsConstructor
+@Entity
 @Table(name="profiles")
 public class Profile {
     private long id;

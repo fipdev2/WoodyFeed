@@ -2,6 +2,7 @@ package com.woodyfeed.quiz.user;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,6 +15,7 @@ import lombok.Setter;
 @Setter
 @Builder
 @NoArgsConstructor
+@Entity
 @Table(name = "users")
 public class User {
     private long id;

@@ -3,6 +3,7 @@ package com.woodyfeed.quiz.answer;
 import com.woodyfeed.quiz.profile.Profile;
 import com.woodyfeed.quiz.question.Question;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -18,6 +19,7 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class Answer {
     @Id
     private long id;

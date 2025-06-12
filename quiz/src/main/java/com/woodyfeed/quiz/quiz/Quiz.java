@@ -2,14 +2,11 @@ package com.woodyfeed.quiz.quiz;
 
 import java.util.ArrayList;
 
-import org.springframework.data.relational.core.mapping.Embedded.Nullable;
-
 import com.woodyfeed.quiz.profileMap.ProfileMap;
 import com.woodyfeed.quiz.question.Question;
-import com.woodyfeed.quiz.user.User;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -23,6 +20,7 @@ import lombok.Setter;
 @Setter
 @Builder
 @NoArgsConstructor
+@Entity
 @Table(name = "quizes")
 public class Quiz {
     @Id
